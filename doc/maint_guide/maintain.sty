@@ -867,18 +867,14 @@
 %  *           CUP specials               *
 %  ****************************************
 %
-\def\author@tabular{\def\@halignto{}\@authortable}
+\def\author@tabular{\let\@tabularcr\author@tabularcr
+ \let\nextaddress\author@tabularcrnospace
+ \tabular}
 \let\endauthor@tabular=\endtabular
 \def\author@tabularcr{{\ifnum0=`}\fi
  \@xtabularcr[4pt]\small\it\ignorespaces}
 \def\author@tabularcrnospace{{\ifnum0=`}\fi
  \@xtabularcr[-2pt]\small\it\ignorespaces}
-\def\@authortable{\leavevmode \hbox \bgroup $\let\@acol\@tabacol
- \let\@classz\@tabclassz
- \let\@classiv\@tabclassiv
- \let\\\author@tabularcr
- \let\nextaddress\author@tabularcrnospace 
- \@tabarray}
 
 \def\long@rule{\par\noindent\rule{\textwidth}{\arrayrulewidth}\par\noindent}
 \def\short@rule{\par\noindent\rule{27pc}{\arrayrulewidth}\par\noindent}
